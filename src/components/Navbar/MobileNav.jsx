@@ -35,7 +35,7 @@ const MobileNav = () => {
             {["Home", "About", "Projects", "Skills", "Contact"].map((item) => (
               <motion.button
                 key={item}
-                className="block w-full text-left text-white px-6 py-3"
+                className="block w-full text-left text-white px-6 py-3 font-semibold"
               >
                 {item}
               </motion.button>
