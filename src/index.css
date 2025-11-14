@@ -3,3 +3,16 @@
 body {
   font-family: "Montserrat", sans-serif;
 }
+
+/* blinking cursor for typing */
+.typing-cursor::after {
+  content: "|";
+  margin-left: 6px;
+  display: inline-block;
+  animation: blink 0.7s steps(2) infinite;
+}
+
+.typing-cursor.finished::after {
+  content: "";
+  animation: none;
+}
