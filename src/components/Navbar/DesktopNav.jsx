@@ -2,7 +2,7 @@
 import { motion } from "motion/react";
 
 const DesktopNav = ({ activeSection, scrollToSection }) => {
-  const links = ["Home", "About", "Projects", "Skills", "Contact"];
+  const links = ["home", "about", "projects", "skills", "contact"];
   return (
     <nav>
       <div className="flex items-center justify-between px-4 h-16">
@@ -15,7 +15,7 @@ const DesktopNav = ({ activeSection, scrollToSection }) => {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               key={item}
-              className={`cursor-pointer font-semibold hover:text-cyan-400 ${
+              className={`cursor-pointer capitalize font-semibold hover:text-cyan-400 ${
                 activeSection === item ? "underline" : ""
               }`}
               onClick={() => scrollToSection(item)}

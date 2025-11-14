@@ -43,7 +43,7 @@ export const Home = () => {
       });
 
       tl.to(nameSpanRef.current, {
-        duration: 2.4,
+        duration: 1.4,
         text: "Hi, I'm Oyedele Oluwatobiloba",
         ease: "none",
         onStart: () => console.log("Typing NAME"),
@@ -51,8 +51,8 @@ export const Home = () => {
         .to(
           titleRef.current,
           {
-            duration: 1.6,
-            text: "Web Developer",
+            duration: 0.8,
+            text: "I'm a Web Developer",
             ease: "none",
             onStart: () => console.log("Typing TITLE"),
           },
@@ -61,7 +61,7 @@ export const Home = () => {
         .to(
           descRef.current,
           {
-            duration: 3,
+            duration: 1.4,
             text: "Crafting beautiful, responsive web experiences with modern technologies",
             ease: "none",
             onStart: () => console.log("Typing DESC"),
@@ -77,7 +77,7 @@ export const Home = () => {
             opacity: 1,
             y: 0,
             scale: 1,
-            duration: 0.6,
+            duration: 0.3,
             stagger: 0.12,
             ease: "power3.out",
             onStart: () => console.log("Fading in BUTTONS"),
