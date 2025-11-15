@@ -8,20 +8,18 @@ const MobileNav = ({
   setIsMenuOpen,
   scrollToSection,
 }) => {
-  const links = ["Home", "About", "Projects", "Skills", "Contact"];
+  const links = ["home", "about", "projects", "skills", "contact"];
   return (
     <nav>
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          <div className="text-2xl font-bold bg-linear-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
-            {"<Dev/>"}
-          </div>
+          <div className="text-2xl font-bold text-gray-900">{"<Dev/>"}</div>
 
           <button
-            className="text-white"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="p-2 text-gray-600 transition-colors"
           >
-            {isMenuOpen ? <X /> : <Menu />}
+            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
       </div>
@@ -30,16 +28,18 @@ const MobileNav = ({
         {isMenuOpen && (
           <motion.div
             initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
+            animate={{ height: "100vh", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.4, ease: "easeInOut" }}
-            className="bg-gray-800 border-t border-gray-700"
+            className="bg-white fixed inset-0 top-16 z-40"
           >
             {links.map((item) => (
               <motion.button
                 key={item}
-                className={`block w-full text-left text-white px-6 py-3 font-semibold ${
-                  activeSection === item ? "underline" : ""
+                className={`block w-full text-left text-xl uppercase px-6 py-3 font-semibold ${
+                  activeSection === item
+                    ? "underline text-gray-900"
+                    : "text-gray-900"
                 }`}
                 onClick={() => scrollToSection(item)}
               >

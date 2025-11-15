@@ -6,16 +6,14 @@ const DesktopNav = ({ activeSection, scrollToSection }) => {
   return (
     <nav>
       <div className="flex items-center justify-between px-4 h-16">
-        <div className="text-2xl font-bold bg-linear-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
-          {"<Dev/>"}
-        </div>
-        <div className="space-x-8 text-white">
+        <div className="text-2xl font-bold text-gray-900">{"<Dev/>"}</div>
+        <div className="space-x-8">
           {links.map((item) => (
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               key={item}
-              className={`cursor-pointer capitalize font-semibold hover:text-cyan-400 ${
+              className={`cursor-pointer capitalize font-semibold text-gray-900 ${
                 activeSection === item ? "underline" : ""
               }`}
               onClick={() => scrollToSection(item)}

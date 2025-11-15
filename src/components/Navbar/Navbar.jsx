@@ -36,9 +36,7 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed z-50 w-full transition-all duration-300 ${
-        scrolled
-          ? "bg-gray-900/95 backdrop-blur-md shadow-lg"
-          : "bg-transparent"
+        scrolled ? "bg-white/90 backdrop-blur-sm shadow-sm" : "bg-transparent"
       }`}
     >
       <div className="md:hidden">
