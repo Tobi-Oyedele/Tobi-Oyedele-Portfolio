@@ -84,7 +84,7 @@ export const Home = () => {
     <section
       ref={heroRef}
       id="home"
-      className="min-h-screen overflow-hidden relative flex items-center justify-center bg-white"
+      className="min-h-screen overflow-hidden relative flex items-center justify-center bg-linear-to-br from-white to-gray-400 "
     >
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
         <div className="mb-8">
@@ -107,14 +107,14 @@ export const Home = () => {
           <button
             ref={button1Ref}
             onClick={scrollToProjects}
-            className="px-8 py-3 bg-gray-900 text-white rounded-lg font-semibold hover:bg-gray-800 transition-all transform hover:scale-105 shadow-md hover:shadow-lg"
+            className="px-8 py-3 bg-gray-900 text-white rounded-lg font-semibold hover:bg-gray-800 transition-all transform hover:scale-105 shadow-md hover:shadow-lg cursor-pointer"
           >
             View My Work
           </button>
           <button
             ref={button2Ref}
             onClick={scrollToContact}
-            className="px-8 py-3 border-2 border-gray-900 text-gray-900 rounded-lg font-semibold hover:bg-gray-900 hover:text-white transition-all transform hover:scale-105"
+            className="px-8 py-3 border-2 border-gray-900 text-gray-900 rounded-lg font-semibold hover:bg-gray-900 hover:text-white transition-all transform hover:scale-105 cursor-pointer"
           >
             Get In Touch
           </button>

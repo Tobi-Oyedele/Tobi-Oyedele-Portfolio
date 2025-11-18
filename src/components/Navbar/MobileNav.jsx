@@ -31,7 +31,7 @@ const MobileNav = ({
             animate={{ height: "100vh", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.4, ease: "easeInOut" }}
-            className="bg-white fixed inset-0 top-16 z-40"
+            className="bg-linear-to-br from-white to-gray-400 fixed inset-0 top-16 z-40"
           >
             {links.map((item) => (
               <motion.button
