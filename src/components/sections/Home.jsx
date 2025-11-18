@@ -39,7 +39,7 @@ export const Home = () => {
 
       tl.to(nameSpanRef.current, {
         duration: 1.2,
-        text: "Hi, I'm Oyedele Oluwatobiloba",
+        text: "Hi, I'm Oluwatobiloba Oyedele",
         ease: "none",
       })
         .to(
