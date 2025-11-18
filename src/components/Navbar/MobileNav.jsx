@@ -38,7 +38,7 @@ const MobileNav = ({
                 key={item}
                 className={`block w-full text-left text-xl uppercase px-6 py-3 font-semibold ${
                   activeSection === item
-                    ? "underline text-gray-900"
+                    ? "underline underline-offset-8 text-gray-900"
                     : "text-gray-900"
                 }`}
                 onClick={() => scrollToSection(item)}

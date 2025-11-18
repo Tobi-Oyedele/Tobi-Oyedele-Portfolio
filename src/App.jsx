@@ -12,9 +12,9 @@ const App = () => {
 
       <Home />
       <About />
-      <Contact />
       <Projects />
       <Skills />
+      <Contact />
     </div>
   );
 };
