@@ -3,7 +3,7 @@ import { Home } from "./components/sections/Home";
 import { Contact } from "./components/sections/Contact";
 import About from "./components/sections/About";
 import Projects from "./components/sections/Projects";
-import { Skills } from "./components/sections/Skills";
+import Skills from "./components/sections/Skills";
 
 const App = () => {
   return (
