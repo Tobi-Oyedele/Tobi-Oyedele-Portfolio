@@ -10,7 +10,7 @@ const MobileNav = ({
 }) => {
   const links = ["home", "about", "projects", "skills", "contact"];
   return (
-    <nav className="bg-gray-900">
+    <nav className="bg-linear-to-br from-gray-950 to-black">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <div className="text-xl font-bold text-white">
@@ -53,15 +53,15 @@ const MobileNav = ({
             animate={{ height: "100vh", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.4, ease: "easeInOut" }}
-            className="bg-linear-to-br from-white to-gray-400 fixed inset-0 top-16 z-40"
+            className="bg-gray-800/95 backdrop-blur fixed inset-0 top-16 z-40"
           >
             {links.map((item) => (
               <motion.button
                 key={item}
                 className={`block w-full text-left text-xl uppercase px-6 py-3 font-semibold ${
                   activeSection === item
-                    ? "underline underline-offset-8 text-gray-900"
-                    : "text-gray-900"
+                    ? "underline underline-offset-8 text-white"
+                    : "text-white"
                 }`}
                 onClick={() => scrollToSection(item)}
               >

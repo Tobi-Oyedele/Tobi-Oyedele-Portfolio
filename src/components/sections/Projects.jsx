@@ -6,15 +6,15 @@ const Projects = () => {
   return (
     <section
       id="projects"
-      className="py-20 bg-linear-to-br from-white to-gray-400 relative overflow-hidden"
+      className="py-20 bg-linear-to-br from-gray-900 to-black relative overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="uppercase text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="uppercase text-4xl md:text-5xl font-bold text-white mb-4">
             My Projects
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
             Here are some of my recent projects that showcase my skills in
             modern web development.
           </p>
@@ -38,7 +38,7 @@ const ProjectCard = ({ project }) => {
 
   return (
     <div
-      className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100"
+      className="group bg-gray-900/60 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-700"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -47,7 +47,7 @@ const ProjectCard = ({ project }) => {
         <img
           src={project.image}
           alt={project.title}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-center"
         />
 
         {/* Quick Actions */}
@@ -62,7 +62,7 @@ const ProjectCard = ({ project }) => {
             rel="noopener noreferrer"
             className="p-2 bg-white rounded-lg shadow-lg hover:bg-gray-50 transition-colors duration-200"
           >
-            <ArrowTopRightOnSquareIcon className="h-4 w-4 text-gray-700" />
+            <ArrowTopRightOnSquareIcon className="h-6 w-6 text-gray-700" />
           </a>
         </div>
       </div>
@@ -70,7 +70,7 @@ const ProjectCard = ({ project }) => {
       {/* Project Info */}
       <div className="p-6">
         <div className="flex items-start justify-between mb-3">
-          <h3 className="font-bold text-gray-900 text-lg">{project.title}</h3>
+          <h3 className="font-bold text-white text-lg">{project.title}</h3>
         </div>
 
         {/* Tech Stack */}
@@ -78,7 +78,7 @@ const ProjectCard = ({ project }) => {
           {project.tech.map((tech) => (
             <span
               key={tech}
-              className="px-2 py-1 bg-gray-100 text-gray-700 rounded-md text-xs font-medium"
+              className="px-2 py-1 bg-gray-800/50 text-gray-300 rounded-md text-xs font-medium"
             >
               {tech}
             </span>

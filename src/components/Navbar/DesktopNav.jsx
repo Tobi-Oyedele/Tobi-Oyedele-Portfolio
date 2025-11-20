@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 const DesktopNav = ({ activeSection, scrollToSection }) => {
   const links = ["home", "about", "projects", "skills", "contact"];
   return (
-    <nav className="bg-gray-900">
+    <nav className="bg-linear-to-br from-gray-950 to-black">
       <div className="flex items-center justify-between px-4 h-16">
         <div className="font-bold text-white">
           <a

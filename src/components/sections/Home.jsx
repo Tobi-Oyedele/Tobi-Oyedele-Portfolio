@@ -99,7 +99,7 @@ export const Home = () => {
 
           <p
             ref={descRef}
-            className="text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed"
+            className="text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed"
           ></p>
         </div>
 
@@ -107,14 +107,14 @@ export const Home = () => {
           <button
             ref={button1Ref}
             onClick={scrollToProjects}
-            className="px-8 py-3 bg-gray-900 text-white rounded-lg font-semibold hover:bg-gray-800 transition-all transform hover:scale-105 shadow-md hover:shadow-lg cursor-pointer"
+            className="px-8 py-3 bg-gray-900 text-white rounded-lg font-semibold hover:bg-blue-500 transition-all transform hover:scale-105 shadow-md hover:shadow-lg cursor-pointer"
           >
             View My Work
           </button>
           <button
             ref={button2Ref}
             onClick={scrollToContact}
-            className="px-8 py-3 border-2 border-gray-900 text-white rounded-lg font-semibold hover:bg-gray-900 hover:text-white transition-all transform hover:scale-105 cursor-pointer"
+            className="px-8 py-3 border-2 border-blue-600 text-white rounded-lg font-semibold hover:bg-blue-600 hover:border-blue-600 transition-all transform hover:scale-105 cursor-pointer"
           >
             Get In Touch
           </button>
