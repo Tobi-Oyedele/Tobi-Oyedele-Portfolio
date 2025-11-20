@@ -9,6 +9,7 @@ import {
 import { SiTypescript } from "react-icons/si";
 import { TbBrandFramerMotion } from "react-icons/tb";
 import { FaGithub } from "react-icons/fa";
+import { IoLogoVercel } from "react-icons/io5";
 
 export const skills = [
   {
@@ -82,6 +83,14 @@ export const skills = [
     bgColor: "bg-cyan-50",
     textColor: "text-cyan-700",
     category: "Framework",
+  },
+  {
+    name: "Vercel",
+    icon: IoLogoVercel,
+    color: "from-cyan-500 to-blue-500",
+    bgColor: "bg-cyan-50",
+    textColor: "text-cyan-700",
+    category: "Tools",
   },
 ];
 
