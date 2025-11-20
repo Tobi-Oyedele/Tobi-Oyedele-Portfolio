@@ -1,4 +1,3 @@
-// components/Projects.jsx
 import { useState } from "react";
 import { projects } from "../../data/projects";
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";

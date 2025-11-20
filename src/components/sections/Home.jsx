@@ -84,22 +84,22 @@ export const Home = () => {
     <section
       ref={heroRef}
       id="home"
-      className="min-h-screen overflow-hidden relative flex items-center justify-center bg-linear-to-br from-white to-gray-400 "
+      className="min-h-screen overflow-hidden relative flex items-center justify-center bg-linear-to-br from-gray-900 to-black"
     >
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
         <div className="mb-8">
           <h1 className="text-4xl md:text-6xl font-bold mb-4">
-            <span ref={nameSpanRef} className="text-gray-900"></span>
+            <span ref={nameSpanRef} className="text-white"></span>
           </h1>
 
           <p
             ref={titleRef}
-            className="text-xl md:text-3xl text-gray-600 mb-4 font-medium"
+            className="text-xl md:text-3xl text-gray-300 mb-4 font-medium"
           ></p>
 
           <p
             ref={descRef}
-            className="text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed"
+            className="text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed"
           ></p>
         </div>
 
@@ -114,7 +114,7 @@ export const Home = () => {
           <button
             ref={button2Ref}
             onClick={scrollToContact}
-            className="px-8 py-3 border-2 border-gray-900 text-gray-900 rounded-lg font-semibold hover:bg-gray-900 hover:text-white transition-all transform hover:scale-105 cursor-pointer"
+            className="px-8 py-3 border-2 border-gray-900 text-white rounded-lg font-semibold hover:bg-gray-900 hover:text-white transition-all transform hover:scale-105 cursor-pointer"
           >
             Get In Touch
           </button>

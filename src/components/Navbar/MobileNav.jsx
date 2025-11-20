@@ -13,11 +13,33 @@ const MobileNav = ({
     <nav>
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          <h2 className="text-2xl font-bold text-gray-900">{"<Dev/>"}</h2>
+          <div className="text-xl font-bold text-white">
+            <a
+              href="/Oluwatobiloba_Oyedele_CV.pdf"
+              download
+              className="px-4 py-2 flex items-center gap-2"
+            >
+              <span>Download CV</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-5 h-5"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M7.5 10.5l4.5 4.5m0 0l4.5-4.5m-4.5 4.5V3"
+                />
+              </svg>
+            </a>
+          </div>
 
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="p-2 text-gray-600 transition-colors"
+            className="p-2 text-white transition-colors"
           >
             {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>

@@ -3,7 +3,8 @@
 h1,
 h2,
 h3,
-button {
+button,
+a {
   font-family: "Space Grotesk", sans-serif;
 }
 
