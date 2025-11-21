@@ -45,10 +45,10 @@ const About = () => {
                 return (
                   <div
                     key={index}
-                    className="grid grid-cols-[auto_1fr] gap-x-3 group p-4 rounded-lg bg-gray-900/40 border border-gray-800 hover:border-blue-600 transition-all duration-300 items-start"
+                    className="grid grid-cols-[auto_1fr] gap-x-3 group p-4 rounded-lg bg-gray-900/40 border border-gray-800 transition-all duration-300 items-start"
                   >
                     <div className="shrink-0">
-                      <IconComponent className="h-7 w-7 text-blue-500 group-hover:text-blue-400 transition-transform duration-300" />
+                      <IconComponent className="h-7 w-7 text-blue-500 transition-transform duration-300" />
                     </div>
                     <div>
                       <h3 className="font-semibold text-gray-200 mb-1">

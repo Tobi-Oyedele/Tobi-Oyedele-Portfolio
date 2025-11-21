@@ -20,7 +20,6 @@ const FallbackIcon = ({ className }) => (
 
 const Skills = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
-  const [hoveredSkill, setHoveredSkill] = useState(null);
 
   const filteredSkills = useMemo(() => {
     return selectedCategory === "All"
@@ -47,7 +46,7 @@ const Skills = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 uppercase">
             Technical Expertise
           </h2>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
@@ -75,19 +74,8 @@ const Skills = () => {
         {/* Skills Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {filteredSkills.map((skill) => (
-            <div
-              key={skill.name}
-              className="relative group"
-              onMouseEnter={() => setHoveredSkill(skill.name)}
-              onMouseLeave={() => setHoveredSkill(null)}
-            >
-              <div
-                className={`bg-gray-900 border border-gray-800 rounded-2xl p-6 hover:border-blue-500 transition-all duration-300 h-full ${
-                  hoveredSkill === skill.name
-                    ? "transform -translate-y-2 shadow-xl shadow-blue-500/25"
-                    : "shadow-md hover:shadow-lg"
-                }`}
-              >
+            <div key={skill.name} className="relative group">
+              <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 transition-all duration-300 h-full">
                 {/* Skill Header */}
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex items-center space-x-3">

@@ -114,7 +114,7 @@ export const Home = () => {
           <button
             ref={button2Ref}
             onClick={scrollToContact}
-            className="px-8 py-3 border-2 border-blue-600 text-white rounded-lg font-semibold hover:bg-blue-600 hover:border-blue-600 transition-all transform hover:scale-105 cursor-pointer"
+            className="px-8 py-3 border-2 border-gray-600 text-white rounded-lg font-semibold hover:bg-blue-600 hover:border-blue-600 transition-all transform hover:scale-105 cursor-pointer"
           >
             Get In Touch
           </button>
