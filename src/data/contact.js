@@ -8,8 +8,8 @@ export const contacts = [
   {
     type: "phone",
     label: "Phone",
-    value: "+234 123 456 7890",
-    href: "tel:+2341234567890",
+    value: "+234 816 768 9810",
+    href: "tel:+2348167689810",
   },
   {
     type: "linkedin",
@@ -28,5 +28,11 @@ export const contacts = [
     label: "Twitter",
     value: "@Tobztheman_",
     href: "https://x.com/tobztheman_?s=21",
+  },
+  {
+    type: "instagram",
+    label: "Instagram",
+    value: "@tobztheman",
+    href: "https://www.instagram.com/tobztheman?igsh=MTY3NDFybzN4MGYxdg%3D%3D&utm_source=qr",
   },
 ];

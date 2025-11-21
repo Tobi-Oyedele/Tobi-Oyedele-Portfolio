@@ -1,5 +1,5 @@
 import { contacts } from "../../data/contact";
-import { FaLinkedin, FaGithub, FaTwitter } from "react-icons/fa";
+import { FaLinkedin, FaGithub, FaTwitter, FaInstagram } from "react-icons/fa";
 import { MdEmail, MdPhone } from "react-icons/md";
 
 const iconMap = {
@@ -8,6 +8,7 @@ const iconMap = {
   linkedin: <FaLinkedin className="h-6 w-6 text-blue-500" />,
   github: <FaGithub className="h-6 w-6 text-blue-500" />,
   twitter: <FaTwitter className="h-6 w-6 text-blue-500" />,
+  instagram: <FaInstagram className="h-6 w-6 text-blue-500" />,
 };
 
 export const Contact = () => {
