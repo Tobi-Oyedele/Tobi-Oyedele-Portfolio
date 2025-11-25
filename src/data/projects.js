@@ -27,4 +27,11 @@ export const projects = [
     liveUrl: "https://audiophile-e-commerce-seven.vercel.app/",
     tech: ["React", "TypeScript", "Tailwind CSS", "Vercel"],
   },
+  {
+    id: 5,
+    title: "QuickBite",
+    image: "/images/Quickbite.png",
+    liveUrl: "https://quickbite-liart.vercel.app/",
+    tech: ["React", "TypeScript", "Tailwind CSS", "Vercel"],
+  },
 ];
