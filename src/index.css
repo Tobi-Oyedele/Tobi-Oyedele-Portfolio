@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+h1,
+h2,
+h3,
+button,
+a {
+  font-family: "Space Grotesk", sans-serif;
+}
+
+p {
+  font-family: "Poppins", sans-serif;
+}
+
+/* blinking cursor for typing */
+.typing-cursor::after {
+  content: "|";
+  margin-left: 6px;
+  display: inline-block;
+  animation: blink 0.7s steps(2) infinite;
+}
+
+.typing-cursor.finished::after {
+  content: "";
+  animation: none;
+}
