@@ -15,23 +15,9 @@ export const projects = [
   },
   {
     id: 3,
-    title: "Dev Jobs",
-    image: "/images/Dev_Jobs.png",
-    liveUrl: "https://devjobs-gray.vercel.app/",
-    tech: ["React", "Tailwind CSS", "Vercel", "TypeScript"],
-  },
-  {
-    id: 4,
-    title: "Audiophile E-Commerce",
-    image: "/images/Audiophile.png",
-    liveUrl: "https://audiophile-e-commerce-seven.vercel.app/",
-    tech: ["React", "TypeScript", "Tailwind CSS", "Vercel"],
-  },
-  {
-    id: 5,
-    title: "QuickBite",
-    image: "/images/Quickbite.png",
-    liveUrl: "https://quickbite-liart.vercel.app/",
+    title: "AMSA Africa",
+    image: "/images/Amsa.png",
+    liveUrl: "https://ams-africa.vercel.app/",
     tech: ["React", "TypeScript", "Tailwind CSS", "Vercel"],
   },
 ];
