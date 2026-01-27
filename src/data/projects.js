@@ -17,7 +17,7 @@ export const projects = [
     id: 3,
     title: "AMSA Africa",
     image: "/images/Amsa.png",
-    liveUrl: "https://ams-africa.vercel.app/",
+    liveUrl: "https://www.amsafrica.org/",
     tech: ["React", "TypeScript", "Tailwind CSS", "Vercel"],
   },
 ];
