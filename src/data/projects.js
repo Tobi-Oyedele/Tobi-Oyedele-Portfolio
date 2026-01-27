@@ -15,7 +15,7 @@ export const projects = [
   },
   {
     id: 3,
-    title: "AMSA Africa",
+    title: "AMSAfrica",
     image: "/images/Amsa.png",
     liveUrl: "https://www.amsafrica.org/",
     tech: ["React", "TypeScript", "Tailwind CSS", "Vercel"],
