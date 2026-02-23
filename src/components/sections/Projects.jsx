@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { projects } from "../../data/projects";
-import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
+import {
+  ArrowTopRightOnSquareIcon,
+  CodeBracketIcon,
+} from "@heroicons/react/24/outline";
 
 const Projects = () => {
   return (
@@ -20,13 +23,11 @@ const Projects = () => {
           </p>
         </div>
 
-        <div>
-          {/* Projects Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-            {projects.map((project) => (
-              <ProjectCard key={project.id} project={project} />
-            ))}
-          </div>
+        {/* Projects Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          {projects.map((project) => (
+            <ProjectCard key={project.id} project={project} />
+          ))}
         </div>
       </div>
     </section>
@@ -38,47 +39,54 @@ const ProjectCard = ({ project }) => {
 
   return (
     <div
-      className="group bg-gray-900/60 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-700"
+      className="group relative bg-gray-900 rounded-2xl overflow-hidden border border-gray-800 hover:border-gray-600 transition-all duration-300 hover:shadow-2xl hover:shadow-black/40"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Project Image */}
-      <div className="relative h-60 overflow-hidden">
+      {/* Image + Overlay */}
+      <div className="relative h-52 overflow-hidden">
         <img
           src={project.image}
           alt={project.title}
-          className="w-full h-full object-center"
+          className={`w-full h-full object-cover transition-transform duration-500 ${
+            isHovered ? "scale-105" : "scale-100"
+          }`}
         />
 
-        {/* Quick Actions */}
+        <div className="absolute inset-0 bg-linear-to-t from-gray-900 via-gray-900/20 to-transparent" />
+
         <div
-          className={`absolute top-4 right-4 flex gap-2 transition-all duration-300 ${
-            isHovered ? "opacity-100 scale-100" : "opacity-0 scale-95"
+          className={`absolute inset-0 bg-gray-900/90 flex flex-col justify-center items-center gap-4 transition-all duration-300 ${
+            isHovered ? "opacity-100" : "opacity-0"
           }`}
         >
-          <a
-            href={project.liveUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-2 bg-white rounded-lg shadow-lg hover:bg-gray-50 transition-colors duration-200"
-          >
-            <ArrowTopRightOnSquareIcon className="h-6 w-6 text-gray-700" />
-          </a>
+          <p className="text-gray-300 text-sm text-center px-6 leading-relaxed cursor-pointer">
+            {project.description}
+          </p>
+          <div className="flex gap-3">
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-4 py-2 bg-white text-gray-900 rounded-lg text-sm font-semibold hover:bg-gray-100 transition-colors duration-200"
+            >
+              <ArrowTopRightOnSquareIcon className="h-4 w-4" />
+              Live Site
+            </a>
+          </div>
         </div>
       </div>
 
-      {/* Project Info */}
-      <div className="p-6">
-        <div className="flex items-start justify-between mb-3">
-          <h3 className="font-bold text-white text-lg">{project.title}</h3>
-        </div>
+      {/* Card Footer */}
+      <div className="p-5">
+        <h3 className="font-bold text-white text-base mb-3">{project.title}</h3>
 
         {/* Tech Stack */}
-        <div className="flex flex-wrap gap-1.5 mb-4">
+        <div className="flex flex-wrap gap-2">
           {project.tech.map((tech) => (
             <span
               key={tech}
-              className="px-2 py-1 bg-gray-800/50 text-gray-300 rounded-md text-xs font-medium"
+              className="px-2.5 py-1 bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 rounded-full text-xs font-medium"
             >
               {tech}
             </span>
