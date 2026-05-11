@@ -14,7 +14,7 @@ const MobileNav = ({
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <div className="text-xl font-bold text-white">
-            <a
+            {/* <a
               href="/Oluwatobiloba_Oyedele_CV.pdf"
               download
               className="px-4 py-2 flex items-center gap-2"
@@ -34,7 +34,7 @@ const MobileNav = ({
                   d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M7.5 10.5l4.5 4.5m0 0l4.5-4.5m-4.5 4.5V3"
                 />
               </svg>
-            </a>
+            </a> */}
           </div>
 
           <button
