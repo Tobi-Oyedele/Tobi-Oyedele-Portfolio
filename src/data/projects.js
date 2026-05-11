@@ -21,28 +21,19 @@ export const projects = [
   },
   {
     id: 3,
-    title: "Creator Analytics Dashboard",
-    image: "/images/creator-analytics.png",
-    liveUrl: "https://creator-analytics-dashboard-snowy.vercel.app/",
+    title: "Saint Valor",
+    image: "/images/saint-valor.png",
+    liveUrl: "https://www.saintvalor.com/",
     description:
-      "A full-stack analytics platform for content creators featuring secure authentication with Zod validation, interactive performance dashboards, and real-time metric visualizations built with Next.js and TypeScript.",
+      "A refined luxury jewelry e-commerce experience built with Next.js, TypeScript & Tailwind. Powered by Axios and Zustand for seamless state, data and performance.",
+
     tech: [
       "Next.js",
       "React",
       "TypeScript",
       "Tailwind CSS",
-      "Vercel",
-      "Zod",
-      "Charts",
+      "Axios",
+      "Zustand",
     ],
-  },
-  {
-    id: 4,
-    title: "F1 Race Calendar Globe",
-    image: "/images/f1-globe.png",
-    liveUrl: "https://f1-globe.vercel.app/",
-    description:
-      "An interactive 3D globe visualizing the Formula 1 race calendar, featuring animated race paths, hover tooltips, and spherical coordinate mapping of every circuit worldwide.",
-    tech: ["React", "Three.js", "TypeScript", "Tailwind CSS", "Vercel"],
   },
 ];
