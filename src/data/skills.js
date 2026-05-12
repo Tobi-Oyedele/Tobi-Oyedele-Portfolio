@@ -6,10 +6,11 @@ import {
   RiHtml5Fill,
   RiNextjsFill,
 } from "react-icons/ri";
-import { SiTypescript } from "react-icons/si";
+import { SiTypescript, SiAxios } from "react-icons/si";
 import { TbBrandFramerMotion } from "react-icons/tb";
 import { FaGithub } from "react-icons/fa";
 import { IoLogoVercel } from "react-icons/io5";
+import { RiBearSmileFill } from "react-icons/ri";
 
 export const skills = [
   {
@@ -90,6 +91,22 @@ export const skills = [
     color: "from-cyan-500 to-blue-500",
     bgColor: "bg-cyan-50",
     textColor: "text-cyan-700",
+    category: "Tools",
+  },
+  {
+    name: "Axios",
+    icon: SiAxios,
+    color: "from-purple-600 to-indigo-600",
+    bgColor: "bg-purple-50",
+    textColor: "text-purple-700",
+    category: "Tools",
+  },
+  {
+    name: "Zustand",
+    icon: RiBearSmileFill,
+    color: "from-amber-600 to-orange-700",
+    bgColor: "bg-amber-50",
+    textColor: "text-amber-700",
     category: "Tools",
   },
 ];

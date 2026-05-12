@@ -1,51 +1,62 @@
-// eslint-disable-next-line no-unused-vars
 import { motion } from "motion/react";
+import { Sun, Moon, Download } from "lucide-react";
 
-const DesktopNav = ({ activeSection, scrollToSection }) => {
+const DesktopNav = ({
+  activeSection,
+  scrollToSection,
+  isDarkMode,
+  toggleTheme,
+}) => {
   const links = ["home", "about", "projects", "skills", "contact"];
+
   return (
-    <nav className="bg-linear-to-br from-gray-950 to-black">
-      <div className="flex items-center justify-between px-4 h-16">
-        <div className="font-bold text-white">
-          <a
-            href="/Oluwatobiloba_Oyedele_CV.pdf"
-            download
-            className="px-4 py-2 flex items-center gap-2"
-          >
-            <span>Download CV</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-5 h-5"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M7.5 10.5l4.5 4.5m0 0l4.5-4.5m-4.5 4.5V3"
-              />
-            </svg>
-          </a>
-        </div>
-        <div className="space-x-8">
+    <div className="flex items-center justify-between h-12">
+      <div className="flex items-center gap-6">
+        <a
+          href="/Oluwatobiloba_Oyedele_CV.pdf"
+          download
+          className="group flex items-center gap-2 px-4 py-2 rounded-full bg-primary text-white text-sm font-medium transition-all hover:bg-secondary hover:shadow-lg hover:shadow-primary/20"
+        >
+          <span>CV</span>
+          <Download className="w-4 h-4 group-hover:animate-bounce" />
+        </a>
+      </div>
+
+      <div className="flex items-center gap-8">
+        <div className="flex items-center gap-6">
           {links.map((item) => (
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
+            <button
               key={item}
-              className={`cursor-pointer uppercase font-semibold text-white ${
-                activeSection === item ? "underline underline-offset-8" : ""
+              className={`relative cursor-pointer capitalize text-sm font-medium transition-colors hover:text-primary ${
+                activeSection === item ? "text-primary" : "text-main/70"
               }`}
               onClick={() => scrollToSection(item)}
             >
               {item}
-            </motion.button>
+              {activeSection === item && (
+                <motion.div
+                  layoutId="activeTab"
+                  className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary rounded-full"
+                  transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                />
+              )}
+            </button>
           ))}
         </div>
+
+        <button
+          onClick={toggleTheme}
+          className="p-2 rounded-full glass hover:bg-primary/10 transition-colors"
+          aria-label="Toggle theme"
+        >
+          {isDarkMode ? (
+            <Sun className="w-5 h-5 text-yellow-400 cursor-pointer" />
+          ) : (
+            <Moon className="w-5 h-5 text-slate-700 cursor-pointer" />
+          )}
+        </button>
       </div>
-    </nav>
+    </div>
   );
 };
 

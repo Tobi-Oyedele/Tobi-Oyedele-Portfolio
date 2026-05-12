@@ -1,15 +1,79 @@
 @import "tailwindcss";
 
-h1,
-h2,
-h3,
-button,
-a {
-  font-family: "Space Grotesk", sans-serif;
+@theme {
+  --color-primary: #3b82f6;
+  --color-secondary: #8b5cf6;
+  --color-accent: #f59e0b;
+  
+  --color-bg-light: #ffffff;
+  --color-bg-dark: #050505;
+  
+  --color-text-light: #1e293b;
+  --color-text-dark: #f8fafc;
+
+  --color-main: var(--text-main);
+  --color-bg: var(--bg-main);
+
+  --font-heading: "Space Grotesk", sans-serif;
+  --font-body: "Poppins", sans-serif;
 }
 
-p {
-  font-family: "Poppins", sans-serif;
+@layer base {
+  :root {
+    --bg-main: var(--color-bg-light);
+    --text-main: var(--color-text-light);
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --grid-color: #000000;
+  }
+
+  :root.dark {
+    --bg-main: var(--color-bg-dark);
+    --text-main: var(--color-text-dark);
+    --glass-bg: rgba(0, 0, 0, 0.2);
+    --glass-border: rgba(255, 255, 255, 0.05);
+    --grid-color: #ffffff;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    font-family: var(--font-body);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+  }
+}
+
+@layer utilities {
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+  }
+
+  .bento-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .bento-item {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    @apply rounded-3xl p-6 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl;
+  }
+
 }
 
 /* blinking cursor for typing */
@@ -23,4 +87,26 @@ p {
 .typing-cursor.finished::after {
   content: "";
   animation: none;
+}
+
+@keyframes blink {
+  from, to { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-main);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-secondary);
 }

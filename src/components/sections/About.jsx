@@ -1,78 +1,93 @@
 import { skills } from "../../data/aboutskills";
+import { motion } from "motion/react";
+import { User, Briefcase, Zap, Globe } from "lucide-react";
 
 const About = () => {
   return (
-    <section
-      id="about"
-      className="py-20 bg-linear-to-br from-gray-950 to-black relative overflow-hidden"
-    >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-        {/* Header Section */}
-        <div className="text-center mb-16 ">
-          <h1 className="text-4xl text-white md:text-5xl font-bold mb-4">
-            Building Websites That
-            <span className="block text-blue-500">
-              Convert Visitors into Customers
-            </span>
-          </h1>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
-            I help businesses create fast, beautiful, and strategic websites
-            designed to drive growth and deliver real results.
-          </p>
+    <section id="about" className="py-24 relative overflow-hidden">
+      <div className="container mx-auto px-6">
+        <div className="flex flex-col md:flex-row items-end justify-between gap-6 mb-12">
+          <div className="max-w-2xl">
+            <h2 className="text-sm font-bold tracking-widest uppercase text-primary mb-4 flex items-center gap-2">
+              <User className="w-4 h-4" /> About Me
+            </h2>
+            <h3 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+              Crafting digital experiences that matter.
+            </h3>
+          </div>
         </div>
 
-        <div className="text-center">
-          <div className="space-y-8">
-            <div className="space-y-4">
-              <p className="text-lg text-gray-400 leading-relaxed">
-                Is your current website failing to generate the leads and sales
-                your business deserves? I help ambitious business owners solve
-                that problem by creating digital experiences that work 24/7 to
-                attract and engage the right customers.
-              </p>
-
-              <p className="text-lg text-gray-400 leading-relaxed">
-                I go beyond just writing code. I partner with you to understand
-                your goals and create a digital asset that becomes your
-                hardest-working employee.
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:auto-rows-[240px]">
+          {/* Main Bio Card */}
+          <motion.div
+            whileHover={{ y: -5 }}
+            className="md:col-span-2 md:row-span-2 bento-item flex flex-col justify-between h-full"
+          >
+            <div>
+              <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-6">
+                <Briefcase className="w-6 h-6" />
+              </div>
+              <h4 className="text-2xl font-bold mb-4">My Philosophy</h4>
+              <p className="text-main/70 text-lg leading-relaxed mb-6">
+                I believe that every line of code should serve a purpose. My
+                approach combines aesthetic excellence with technical precision,
+                ensuring that the websites I build are not just beautiful, but
+                also fast, accessible, and high-converting.
               </p>
             </div>
+          </motion.div>
 
-            {/* Skills Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {skills.map((skill, index) => {
-                const IconComponent = skill.icon;
-                return (
-                  <div
-                    key={index}
-                    className="grid grid-cols-[auto_1fr] gap-x-3 group p-4 rounded-lg bg-gray-900/40 border border-gray-800 transition-all duration-300 items-start"
-                  >
-                    <div className="shrink-0">
-                      <IconComponent className="h-7 w-7 text-blue-500 transition-transform duration-300" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-gray-200 mb-1">
-                        {skill.name}
-                      </h3>
-                      <p className="text-gray-400 text-sm leading-relaxed">
-                        {skill.description}
-                      </p>
-                    </div>
-                  </div>
-                );
-              })}
+          {/* Stats/Quick Info Card */}
+          <motion.div
+            whileHover={{ y: -5 }}
+            className="bento-item flex flex-col justify-center items-center text-center"
+          >
+            <div className="text-5xl font-bold mb-2">3+</div>
+            <div className="text-main/50 font-bold uppercase tracking-widest text-xs">
+              Years Experience
             </div>
+          </motion.div>
 
-            {/* CTA Button */}
-            <div className="pt-4">
-              <a
-                href="#contact"
-                className="inline-flex items-center px-6 py-3 text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-500 transition-all duration-200 shadow-sm hover:shadow-md transform hover:-translate-y-0.5"
+          {/* Location Card */}
+          <motion.div
+            whileHover={{ y: -5 }}
+            className="bento-item flex flex-col gap-6"
+          >
+            <div className="flex items-center gap-3 text-primary">
+              <Globe className="w-5 h-5" />
+              <span className="font-bold uppercase tracking-wider text-xs">
+                Based In
+              </span>
+            </div>
+            <div>
+              <h4 className="text-xl font-bold">Lagos, Nigeria</h4>
+              <p className="text-main/50 text-sm">
+                Working with clients worldwide.
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Skills highlight */}
+          {skills.slice(0, 2).map((skill, index) => {
+            const Icon = skill.icon;
+            return (
+              <motion.div
+                key={index}
+                whileHover={{ y: -5 }}
+                className="bento-item flex flex-col gap-4"
               >
-                Let's Start a Conversation
-              </a>
-            </div>
-          </div>
+                <div className="w-10 h-10 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary">
+                  <Icon className="w-5 h-5" />
+                </div>
+                <div>
+                  <h4 className="text-xl md:text-2xl font-bold mb-2">{skill.name}</h4>
+                  <p className="text-main/50 text-xs leading-relaxed">
+                    {skill.description}
+                  </p>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

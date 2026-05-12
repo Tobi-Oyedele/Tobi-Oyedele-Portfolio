@@ -1,11 +1,57 @@
 import gsap from "gsap";
-import TextPlugin from "gsap/TextPlugin";
 import { useEffect, useRef } from "react";
-
-// Register the plugin
-gsap.registerPlugin(TextPlugin);
+import { ArrowRight, ChevronDown } from "lucide-react";
+import { motion } from "motion/react";
 
 export const Home = () => {
+  const heroRef = useRef(null);
+  const containerRef = useRef(null);
+  const titleRef = useRef(null);
+  const subTitleRef = useRef(null);
+  const buttonsRef = useRef(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
+
+      tl.from(containerRef.current, {
+        opacity: 0,
+        duration: 1,
+      })
+        .from(
+          titleRef.current.children,
+          {
+            y: 100,
+            opacity: 0,
+            stagger: 0.1,
+            duration: 1.2,
+          },
+          "-=0.5",
+        )
+        .from(
+          subTitleRef.current,
+          {
+            y: 20,
+            opacity: 0,
+            duration: 1,
+          },
+          "-=0.8",
+        )
+        .from(
+          buttonsRef.current.children,
+          {
+            scale: 0.8,
+            opacity: 0,
+            stagger: 0.2,
+            duration: 0.8,
+          },
+          "-=0.6",
+        );
+    }, heroRef);
+
+    return () => ctx.revert();
+  }, []);
+
   const scrollToProjects = () => {
     document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
   };
@@ -14,112 +60,75 @@ export const Home = () => {
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const heroRef = useRef(null);
-  const nameSpanRef = useRef(null);
-  const titleRef = useRef(null);
-  const descRef = useRef(null);
-  const button1Ref = useRef(null);
-  const button2Ref = useRef(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      if (!nameSpanRef.current || !titleRef.current || !descRef.current) return;
-
-      gsap.set([button1Ref.current, button2Ref.current], {
-        opacity: 0,
-        y: 20,
-        scale: 0.98,
-      });
-
-      gsap.set([nameSpanRef.current, titleRef.current, descRef.current], {
-        text: "",
-      });
-
-      const tl = gsap.timeline();
-
-      tl.to(nameSpanRef.current, {
-        duration: 1.2,
-        text: "Hi, I'm Oluwatobiloba Oyedele",
-        ease: "none",
-      })
-        .to(
-          titleRef.current,
-          {
-            duration: 0.6,
-            text: "I'm a Web Developer",
-            ease: "none",
-          },
-          "+=0.2"
-        )
-        .to(
-          descRef.current,
-          {
-            duration: 1.2,
-            text: "Crafting beautiful, responsive web experiences with modern technologies",
-            ease: "none",
-            onComplete: () => {
-              descRef.current.classList.add("finished");
-            },
-          },
-          "+=0.15"
-        )
-        .to(
-          [button1Ref.current, button2Ref.current],
-          {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            duration: 0.25,
-            stagger: 0.1,
-            ease: "power3.out",
-          },
-          "+=0.15"
-        );
-    }, heroRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
     <section
       ref={heroRef}
       id="home"
-      className="min-h-screen overflow-hidden relative flex items-center justify-center bg-linear-to-br from-gray-900 to-black"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
     >
-      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-        <div className="mb-8">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4">
-            <span ref={nameSpanRef} className="text-white"></span>
-          </h1>
-
-          <p
-            ref={titleRef}
-            className="text-xl md:text-3xl text-gray-300 mb-4 font-medium"
-          ></p>
-
-          <p
-            ref={descRef}
-            className="text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed"
-          ></p>
+      <div
+        ref={containerRef}
+        className="relative z-10 container mx-auto px-6 text-center"
+      >
+        <div className="mb-12 inline-flex items-center gap-2 px-4 py-2 rounded-full glass border-primary/20 text-xs font-bold tracking-widest uppercase text-primary">
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+          </span>
+          Available for new projects
         </div>
 
-        <div className="flex flex-wrap justify-center gap-4">
+        <h1
+          ref={titleRef}
+          className="text-[11vw] md:text-[8.5rem] font-bold tracking-tighter leading-[1.1] md:leading-[0.8] mb-12 uppercase break-words"
+        >
+          <div className="overflow-hidden">Oluwatobiloba</div>
+          <div className="overflow-hidden">Oyedele</div>
+        </h1>
+
+        <div ref={subTitleRef}>
+          <p className="text-lg md:text-xl text-main/60 max-w-2xl mx-auto mb-12 leading-relaxed font-medium">
+            A frontend developer dedicated to creating high-performance,
+            visually stunning web experiences that leave a lasting impression.
+          </p>
+        </div>
+
+        <div
+          ref={buttonsRef}
+          className="flex flex-col sm:flex-row items-center justify-center gap-6"
+        >
           <button
-            ref={button1Ref}
             onClick={scrollToProjects}
-            className="px-8 py-3 bg-gray-900 text-white rounded-lg font-semibold hover:bg-blue-500 transition-all transform hover:scale-105 shadow-md hover:shadow-lg cursor-pointer"
+            className="group relative px-10 py-5 bg-primary text-white rounded-2xl font-bold transition-all hover:shadow-2xl hover:shadow-primary/30 active:scale-[0.98] cursor-pointer text-lg"
           >
-            View My Work
+            <div className="flex items-center gap-2">
+              Explore My Work{" "}
+              <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+            </div>
           </button>
+
           <button
-            ref={button2Ref}
             onClick={scrollToContact}
-            className="px-8 py-3 border-2 border-gray-600 text-white rounded-lg font-semibold hover:bg-blue-600 hover:border-blue-600 transition-all transform hover:scale-105 cursor-pointer"
+            className="px-10 py-5 glass rounded-2xl font-bold hover:bg-main/5 transition-all cursor-pointer text-lg"
           >
             Get In Touch
           </button>
         </div>
       </div>
+
+      {/* Scroll Indicator */}
+      <motion.div
+        animate={{ y: [0, 10, 0] }}
+        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 opacity-30 cursor-pointer"
+        onClick={() =>
+          document
+            .getElementById("about")
+            ?.scrollIntoView({ behavior: "smooth" })
+        }
+      >
+        <ChevronDown size={32} />
+      </motion.div>
     </section>
   );
 };

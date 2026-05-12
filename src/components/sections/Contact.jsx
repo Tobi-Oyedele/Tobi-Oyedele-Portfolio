@@ -1,58 +1,61 @@
 import { contacts } from "../../data/contact";
 import { FaLinkedin, FaGithub, FaTwitter, FaInstagram } from "react-icons/fa";
 import { MdEmail, MdPhone } from "react-icons/md";
+import { motion } from "motion/react";
+import { Send, MessageSquare } from "lucide-react";
 
 const iconMap = {
-  email: <MdEmail className="h-6 w-6 text-blue-500" />,
-  phone: <MdPhone className="h-6 w-6 text-blue-500" />,
-  linkedin: <FaLinkedin className="h-6 w-6 text-blue-500" />,
-  github: <FaGithub className="h-6 w-6 text-blue-500" />,
-  twitter: <FaTwitter className="h-6 w-6 text-blue-500" />,
-  instagram: <FaInstagram className="h-6 w-6 text-blue-500" />,
+  email: <MdEmail className="h-5 w-5" />,
+  phone: <MdPhone className="h-5 w-5" />,
+  linkedin: <FaLinkedin className="h-5 w-5" />,
+  github: <FaGithub className="h-5 w-5" />,
+  twitter: <FaTwitter className="h-5 w-5" />,
+  instagram: <FaInstagram className="h-5 w-5" />,
 };
 
 export const Contact = () => {
   return (
-    <section
-      id="contact"
-      className="py-20 bg-linear-to-br from-gray-950 to-black relative overflow-hidden"
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Get In Touch
-          </h2>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            I’m always open to discussing new projects, creative ideas, or
-            opportunities to be part of your vision.
-          </p>
+    <section id="contact" className="py-24 relative overflow-hidden">
+      <div className="container mx-auto px-6">
+        <div className="flex flex-col md:flex-row items-end justify-between gap-6 mb-16">
+          <div className="max-w-2xl">
+            <h2 className="text-sm font-bold tracking-widest uppercase text-primary mb-4 flex items-center gap-2">
+              <MessageSquare className="w-4 h-4" /> Get In Touch
+            </h2>
+            <h3 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+              Let's create something extraordinary.
+            </h3>
+          </div>
         </div>
 
-        {/* Contact Grid */}
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
-          {contacts.map((contact) => (
-            <a
-              key={contact.label}
-              href={contact.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center p-6 bg-gray-900 border border-gray-800 rounded-xl shadow-md hover:shadow-xl 
-                         transition-all duration-300 group hover:-translate-y-1"
-            >
-              <div className="shrink-0 mr-4">
-                <div className="p-3 rounded-full bg-gray-800 group-hover:bg-blue-600 transition-colors duration-300">
+        <div className="max-w-4xl mx-auto">
+          {/* Contact Info */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {contacts.map((contact, index) => (
+              <motion.a
+                key={contact.label}
+                href={contact.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                whileHover={{ y: -5 }}
+                className="flex items-center gap-6 p-8 bento-item group"
+              >
+                <div className="w-14 h-14 rounded-2xl glass flex items-center justify-center text-primary transition-colors group-hover:bg-primary group-hover:text-white shrink-0">
                   {iconMap[contact.type]}
                 </div>
-              </div>
-              <div>
-                <h3 className="text-lg font-bold text-white">
-                  {contact.label}
-                </h3>
-                <p className="text-gray-400">{contact.value}</p>
-              </div>
-            </a>
-          ))}
+                <div className="min-w-0 flex-1">
+                  <h4 className="text-xs font-bold uppercase tracking-widest text-main/40 mb-1">{contact.label}</h4>
+                  <p className="text-xl font-bold group-hover:text-primary transition-colors break-all leading-tight">
+                    {contact.value}
+                  </p>
+                </div>
+              </motion.a>
+            ))}
+          </div>
         </div>
       </div>
     </section>
