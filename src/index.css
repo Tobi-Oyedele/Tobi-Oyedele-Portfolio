@@ -1,101 +1,84 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;1,9..40,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap");
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #3b82f6;
-  --color-secondary: #8b5cf6;
-  --color-accent: #f59e0b;
+  --color-primary: #c4b59d;
+  --color-accent: #c4b59d;
   
-  --color-bg-light: #ffffff;
-  --color-bg-dark: #050505;
+  --color-bg-light: #faf8f5;
+  --color-bg-dark: #0c0b09;
   
-  --color-text-light: #1e293b;
-  --color-text-dark: #f8fafc;
+  --color-text-light: #1e1d1b;
+  --color-text-dark: #f5f2eb;
 
-  --color-main: var(--text-main);
-  --color-bg: var(--bg-main);
+  --color-muted-light: #6e6d67;
+  --color-muted-dark: #a19f97;
 
-  --font-heading: "Space Grotesk", sans-serif;
-  --font-body: "Poppins", sans-serif;
+  --font-serif: "Newsreader", serif;
+  --font-sans: "DM Sans", sans-serif;
 }
 
 @layer base {
   :root {
     --bg-main: var(--color-bg-light);
     --text-main: var(--color-text-light);
-    --glass-bg: rgba(255, 255, 255, 0.7);
-    --glass-border: rgba(255, 255, 255, 0.2);
-    --grid-color: #000000;
+    --text-muted: var(--color-muted-light);
+    --hairline: rgba(30, 29, 27, 0.08);
   }
 
   :root.dark {
     --bg-main: var(--color-bg-dark);
     --text-main: var(--color-text-dark);
-    --glass-bg: rgba(0, 0, 0, 0.2);
-    --glass-border: rgba(255, 255, 255, 0.05);
-    --grid-color: #ffffff;
+    --text-muted: var(--color-muted-dark);
+    --hairline: rgba(245, 242, 235, 0.08);
   }
 
   html {
     scroll-behavior: smooth;
+    color-scheme: dark light;
   }
 
   body {
     background-color: var(--bg-main);
     color: var(--text-main);
-    font-family: var(--font-body);
-    transition: background-color 0.3s ease, color 0.3s ease;
+    font-family: var(--font-sans);
+    transition: background-color 0.35s ease, color 0.35s ease;
+    -webkit-font-smoothing: antialiased;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-heading);
-    font-weight: 700;
+    font-family: var(--font-serif);
+    font-weight: 400;
+  }
+
+  ::selection {
+    background-color: rgba(196, 181, 157, 0.35);
+    color: var(--text-main);
+  }
+
+  ::-moz-selection {
+    background-color: rgba(196, 181, 157, 0.35);
+    color: var(--text-main);
   }
 }
 
 @layer utilities {
-  .glass {
-    background: var(--glass-bg);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid var(--glass-border);
+  .border-hairline {
+    border-color: var(--hairline);
   }
-
-  .bento-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
+  
+  .text-muted {
+    color: var(--text-muted);
   }
-
-  .bento-item {
-    background: var(--glass-bg);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid var(--glass-border);
-    @apply rounded-3xl p-6 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl;
+  
+  .text-off-white {
+    color: var(--text-main);
   }
-
 }
 
-/* blinking cursor for typing */
-.typing-cursor::after {
-  content: "|";
-  margin-left: 6px;
-  display: inline-block;
-  animation: blink 0.7s steps(2) infinite;
-}
-
-.typing-cursor.finished::after {
-  content: "";
-  animation: none;
-}
-
-@keyframes blink {
-  from, to { opacity: 1; }
-  50% { opacity: 0; }
-}
-
+/* Custom minimal scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -103,10 +86,10 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-primary);
-  border-radius: 10px;
+  background: var(--hairline);
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-secondary);
+  background: var(--color-primary);
 }

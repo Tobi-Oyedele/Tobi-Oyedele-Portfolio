@@ -1,97 +1,73 @@
 import { projects } from "../../data/projects";
-import { motion } from "motion/react";
-import { ExternalLink, Github, Layout } from "lucide-react";
 
-const Projects = () => {
+export const Projects = () => {
   return (
-    <section id="projects" className="py-24 relative overflow-hidden">
-      <div className="container mx-auto px-6">
-        <div className="flex flex-col md:flex-row items-end justify-between gap-6 mb-16">
-          <div className="max-w-2xl">
-            <h2 className="text-sm font-bold tracking-widest uppercase text-primary mb-4 flex items-center gap-2">
-              <Layout className="w-4 h-4" /> Selected Work
-            </h2>
-            <h3 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-              A collection of recent projects.
-            </h3>
-          </div>
-          <p className="text-main/60 max-w-md text-lg font-medium mb-2">
-            Each project is a unique solution crafted with focus on performance,
-            user experience, and aesthetic quality.
-          </p>
-        </div>
+    <section id="projects" className="py-4">
+      <h2 className="font-serif text-[1.35rem] sm:text-2xl font-medium text-off-white tracking-tight mb-8 pb-4 border-b border-hairline">
+        Projects
+      </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          {projects.map((project, index) => (
-            <ProjectCard key={project.id} project={project} index={index} />
-          ))}
-        </div>
+      <ul>
+        {projects.map((project) => {
+          let hostname = "";
+          try {
+            hostname = new URL(project.liveUrl).hostname;
+          } catch (e) {
+            hostname = project.liveUrl;
+          }
 
-        <div className="mt-20 text-center">
-          <motion.a
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            href="https://github.com/Tobi-Oyedele"
-            target="_blank"
-            className="inline-flex items-center gap-2 px-8 py-4 glass rounded-2xl font-bold hover:bg-main/5 transition-all"
-          >
-            <Github className="w-5 h-5" /> More on GitHub
-          </motion.a>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const ProjectCard = ({ project, index }) => {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
-      className="group"
-    >
-      <div className="relative aspect-video rounded-3xl overflow-hidden glass border-white/10 shadow-2xl mb-8">
-        <img
-          src={project.image}
-          alt={project.title}
-          className="w-full h-full object-cover transition-transform duration-700"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-      </div>
-
-      <div className="px-2">
-        <div className="flex flex-wrap gap-2 mb-4">
-          {project.tech.map((tech) => (
-            <span
-              key={tech}
-              className="px-3 py-1 glass text-[10px] font-bold uppercase tracking-wider text-primary border-primary/20"
+          return (
+            <li
+              key={project.id}
+              className="border-b border-hairline last:border-b-0"
             >
-              {tech}
-            </span>
-          ))}
-        </div>
-
-        <div className="flex items-center justify-between gap-4 mb-4">
-          <h4 className="text-2xl md:text-3xl font-bold transition-colors duration-300">
-            {project.title}
-          </h4>
-          <a
-            href={project.liveUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 px-5 py-2.5 glass rounded-xl text-sm font-bold hover:bg-primary hover:text-white transition-all whitespace-nowrap shrink-0"
-          >
-            Live Site <ExternalLink className="w-4 h-4" />
-          </a>
-        </div>
-
-        <p className="text-main/60 text-base md:text-lg leading-relaxed max-w-xl">
-          {project.description}
-        </p>
-      </div>
-    </motion.div>
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="group block py-6 sm:py-7 -mx-1 px-1 sm:px-2 -ml-2 sm:-ml-3 border-l-2 border-transparent hover:border-primary pl-3 sm:pl-4 transition-all duration-300"
+              >
+                <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2 sm:gap-6">
+                  <div className="min-w-0">
+                    <span className="font-serif text-[1.05rem] sm:text-lg text-off-white group-hover:text-primary transition-colors duration-300">
+                      {project.title}
+                    </span>
+                    <span className="mt-1.5 block font-sans text-[10px] uppercase tracking-[0.14em] text-muted group-hover:text-muted/80 transition-colors duration-300">
+                      {hostname}
+                    </span>
+                  </div>
+                  <span
+                    className="shrink-0 font-sans text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm hidden sm:block"
+                    aria-hidden="true"
+                  >
+                    ↗
+                  </span>
+                </div>
+                <p className="mt-3 text-[14px] leading-relaxed text-muted max-w-xl font-normal">
+                  {project.description}
+                </p>
+                <div className="mt-4 flex flex-wrap items-center gap-x-2 gap-y-1 text-[10px] sm:text-[11px] font-sans tracking-wider text-muted/50 uppercase">
+                  <span className="font-semibold text-muted/40">
+                    Tech Stack:
+                  </span>
+                  {project.tech.map((tech, index) => (
+                    <span
+                      key={tech}
+                      className="font-medium text-muted group-hover:text-muted/80 transition-colors duration-300"
+                    >
+                      {tech}
+                      {index < project.tech.length - 1 && (
+                        <span className="text-muted/30 ml-2">/</span>
+                      )}
+                    </span>
+                  ))}
+                </div>
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    </section>
   );
 };
 

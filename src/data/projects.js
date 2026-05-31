@@ -5,9 +5,8 @@ export const projects = [
     image: "/images/Oris_Crown_Logistics.png",
     liveUrl: "https://www.orislogistics.com/",
     description:
-      "A modern marketing website for a global freight and cargo company, built with Next.js and Framer Motion featuring smooth animations, responsive layouts, and a professional service showcase.",
-
-    tech: ["Next.js", "TypeScript", "Framer Motion", "Tailwind CSS", "Vercel"],
+      "A modern marketing website and service showcase for a global freight company.",
+    tech: ["Next.js", "TypeScript", "Framer Motion", "Tailwind CSS"],
   },
   {
     id: 2,
@@ -15,9 +14,8 @@ export const projects = [
     image: "/images/Amsa.png",
     liveUrl: "https://www.amsafrica.org/",
     description:
-      "A multi-page platform for the Association of Medical Schools in Africa spanning 10+ countries, featuring dynamic routing, conference registration integration, and a responsive navigation system.",
-
-    tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Vercel"],
+      "A multi-page community platform for medical schools across Africa.",
+    tech: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
   },
   {
     id: 3,
@@ -25,8 +23,7 @@ export const projects = [
     image: "/images/saint-valor.png",
     liveUrl: "https://www.saintvalor.com/",
     description:
-      "A refined luxury jewelry e-commerce experience built with Next.js, TypeScript & Tailwind. Powered by Axios and Zustand for seamless state, data and performance.",
-
+      "A refined luxury jewelry e-commerce experience powered by Next.js and Zustand.",
     tech: [
       "Next.js",
       "React",
@@ -35,5 +32,13 @@ export const projects = [
       "Axios",
       "Zustand",
     ],
+  },
+  {
+    id: 4,
+    title: "Invoicely",
+    image: "/images/invoicely.png",
+    liveUrl: "https://www.invoicely.online/",
+    description: "A free, secure online invoice generator with PDF downloads.",
+    tech: ["React", "TypeScript", "Tailwind CSS", "Supabase", "React PDF"],
   },
 ];
