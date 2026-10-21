@@ -39,6 +39,17 @@ export const projects = [
     image: "/images/invoicely.png",
     liveUrl: "https://www.invoicely.online/",
     description: "A free, secure online invoice generator with PDF downloads.",
-    tech: ["React", "TypeScript", "Tailwind CSS", "Supabase", "React PDF"],
+    tech: [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "Mongoose",
+      "Axios",
+      "Zod",
+      "React PDF",
+    ],
   },
 ];
