@@ -1,15 +1,6 @@
 export const projects = [
   {
     id: 1,
-    title: "Oris Crown Logistics",
-    image: "/images/Oris_Crown_Logistics.png",
-    liveUrl: "https://www.orislogistics.com/",
-    description:
-      "A modern marketing website and service showcase for a global freight company.",
-    tech: ["Next.js", "TypeScript", "Framer Motion", "Tailwind CSS"],
-  },
-  {
-    id: 2,
     title: "AMSAfrica",
     image: "/images/Amsa.png",
     liveUrl: "https://www.amsafrica.org/",
@@ -18,7 +9,7 @@ export const projects = [
     tech: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
   },
   {
-    id: 3,
+    id: 2,
     title: "Saint Valor",
     image: "/images/saint-valor.png",
     liveUrl: "https://www.saintvalor.com/",
@@ -34,7 +25,7 @@ export const projects = [
     ],
   },
   {
-    id: 4,
+    id: 3,
     title: "Invoicely",
     image: "/images/invoicely.png",
     liveUrl: "https://www.invoicely.online/",
@@ -50,6 +41,25 @@ export const projects = [
       "Axios",
       "Zod",
       "React PDF",
+    ],
+  },
+  {
+    id: 4,
+    title: "Shiptrail",
+    liveUrl: "https://shiptrail.pxxlspace.cv/",
+    description:
+      "A GitHub-powered shipping log that turns pushes and merged pull requests into updates you can review and track.",
+    tech: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Node.js",
+      "Express",
+      "PostgreSQL",
+      "Drizzle ORM",
+      "Better Auth",
+      "Docker",
     ],
   },
 ];
