@@ -1,3 +1,4 @@
+import { ArrowUpRight } from "lucide-react";
 import { projects } from "../../data/projects";
 
 export const Projects = () => {
@@ -29,7 +30,7 @@ export const Projects = () => {
                   className="col-start-2 row-start-1 sm:col-start-3 shrink-0 text-xs text-muted transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-focus-visible:translate-x-0.5 group-focus-visible:-translate-y-0.5 motion-reduce:transform-none motion-reduce:transition-none"
                   aria-hidden="true"
                 >
-                  ↗
+                  <ArrowUpRight className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" />
                 </span>
             </a>
           </li>
