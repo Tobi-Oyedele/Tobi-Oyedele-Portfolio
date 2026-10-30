@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { createGuestbookHandler, validateEntry } from '../server/guestbook.mjs';
+import { createGuestbookHandler, validateEntry, storageDiagnostic } from '../server/guestbook.mjs';
 
 function storage() {
   const entries = []; const slots = new Set();
@@ -55,4 +55,13 @@ test('paginates, validates page numbers and rejects unsupported methods', async 
 test('storage failures return a safe recoverable error', async () => {
   const handler = createGuestbookHandler(async () => { throw new Error('secret connection details'); });
   const result = await invoke(handler); assert.equal(result.status, 503); assert.ok(!JSON.stringify(result).includes('secret connection'));
+});
+
+test('database diagnostics identify failures without exposing credentials', () => {
+  assert.equal(storageDiagnostic({ code: 18, message: 'mongodb://private' }), 'AUTHENTICATION_FAILED');
+  assert.equal(storageDiagnostic({ code: 13 }), 'DATABASE_PERMISSION_DENIED');
+  assert.equal(storageDiagnostic({ name: 'MongoServerSelectionError', cause: { code: 'ENOTFOUND' } }), 'CLUSTER_DNS_FAILED');
+  assert.equal(storageDiagnostic({ name: 'MongoServerSelectionError' }), 'CLUSTER_UNREACHABLE');
+  assert.equal(storageDiagnostic({ name: 'MongoParseError' }), 'CONNECTION_CONFIGURATION_INVALID');
+  assert.equal(storageDiagnostic(new Error('mongodb://private')), 'DATABASE_OPERATION_FAILED');
 });
