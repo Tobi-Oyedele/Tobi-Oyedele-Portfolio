@@ -93,3 +93,9 @@
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-primary);
 }
+
+/* Keep interactive text neutral in both color themes. */
+a:hover, button:hover,
+a:hover [class*="text-"], button:hover [class*="text-"],
+a:hover h3 { color: var(--text-main); }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--text-main); outline-offset: 4px; }
