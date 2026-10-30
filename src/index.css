@@ -1,5 +1,13 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;1,9..40,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;1,9..40,400&display=swap");
 @import "tailwindcss";
+
+@font-face {
+  font-family: "EditorialNew";
+  src: url("/fonts/EditorialNew-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 
 @theme {
   --color-primary: #c4b59d;
@@ -14,7 +22,7 @@
   --color-muted-light: #6e6d67;
   --color-muted-dark: #a19f97;
 
-  --font-serif: "Newsreader", serif;
+  --font-serif: "EditorialNew", Georgia, serif;
   --font-sans: "DM Sans", sans-serif;
 }
 
@@ -94,8 +102,53 @@
   background: var(--color-primary);
 }
 
-/* Keep interactive text neutral in both color themes. */
-a:hover, button:hover,
-a:hover [class*="text-"], button:hover [class*="text-"],
-a:hover h3 { color: var(--text-main); }
-a:focus-visible, button:focus-visible { outline: 2px solid var(--text-main); outline-offset: 4px; }
+/* Small interactions shared with the approved design preview. */
+.name-bounce {
+  display: inline-block;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+  cursor: pointer;
+}
+.name-bounce:hover { color: inherit; }
+.name-letter { display: inline-block; transform-origin: center bottom; }
+.name-bounce.is-playing .name-letter {
+  animation: name-hop 650ms cubic-bezier(.22, 1, .36, 1) both;
+  animation-delay: calc(var(--letter) * 32ms);
+}
+@keyframes name-hop {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  35% { transform: translateY(-10px) rotate(-5deg); }
+  65% { transform: translateY(2px) rotate(3deg); }
+}
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text-main);
+  cursor: pointer;
+  transition: transform 200ms ease;
+}
+.theme-toggle:hover { transform: scale(1.05); }
+.theme-toggle:active { transform: scale(.96); }
+.theme-icon { width: 18px; height: 18px; transition: transform 250ms ease; }
+.theme-icon.is-dark { transform: rotate(180deg); }
+.name-bounce:focus-visible, .theme-toggle:focus-visible {
+  outline: 2px solid var(--text-main);
+  outline-offset: 5px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .name-bounce.is-playing .name-letter { animation: none; }
+  .theme-toggle, .theme-icon { transition: none; }
+  .theme-toggle:hover, .theme-toggle:active { transform: none; }
+}
