@@ -1,5 +1,7 @@
 import { Home } from "./components/sections/Home";
 import Projects from "./components/sections/Projects";
+import TechStack from "./components/sections/TechStack";
+import More from "./components/sections/More";
 import { ThemeProvider, useTheme } from "./context/ThemeContext";
 import { Sun, Moon } from "lucide-react";
 
@@ -27,6 +29,8 @@ const MainContent = () => {
         <main>
           <Home />
           <Projects />
+          <TechStack />
+          <More />
         </main>
       </div>
 
