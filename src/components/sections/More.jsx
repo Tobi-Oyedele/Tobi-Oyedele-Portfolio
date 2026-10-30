@@ -1,6 +1,6 @@
 const pages = [
-  { title: "Bookshelf", description: "What I’m reading and have read", href: "/explorations/bookshelf.html" },
-  { title: "List 100", description: "Things I’d like to do", href: "/explorations/list-100.html" },
+  { title: "Bookshelf", description: "What I’m reading and have read", href: "/bookshelf" },
+  { title: "List 100", description: "Things I’d like to do", href: "/list-100" },
   { title: "Guestbook", description: "Leave a little hello", href: "/explorations/guestbook.html" },
 ];
 
@@ -23,7 +23,6 @@ export default function More() {
           </li>
         ))}
       </ul>
-      <p className="mt-4 text-xs leading-relaxed text-muted">These pages currently open design previews.</p>
     </section>
   );
 }

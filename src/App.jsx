@@ -7,11 +7,19 @@ import { ThemeProvider, useTheme } from "./context/ThemeContext";
 const MainContent = () => {
   const { isDarkMode, toggleTheme } = useTheme();
 
+  const path = window.location.pathname.replace(/\/$/, "") || "/";
+  const isPersonalPage = path === "/bookshelf" || path === "/list-100";
+
   return (
     <div className="max-w-2xl mx-auto min-h-screen px-6 sm:px-8 py-12 sm:py-16 md:py-20 flex flex-col justify-between">
       <div>
         {/* Navigation / Theme Toggle */}
-        <nav className="flex items-center justify-end mb-14 sm:mb-16">
+        <nav className="flex items-center justify-between mb-14 sm:mb-16">
+          <div className="flex gap-5 text-xs text-muted">
+            <a href="/">Home</a>
+            <a href="/bookshelf" aria-current={path === "/bookshelf" ? "page" : undefined}>Bookshelf</a>
+            <a href="/list-100" aria-current={path === "/list-100" ? "page" : undefined}>List 100</a>
+          </div>
           <button
             onClick={toggleTheme}
             className="theme-toggle"
@@ -35,10 +43,14 @@ const MainContent = () => {
         </nav>
 
         <main>
-          <Home />
-          <Projects />
-          <TechStack />
-          <More />
+          {isPersonalPage ? (path === "/bookshelf" ? <Bookshelf /> : <List100 />) : (
+            <>
+              <Home />
+              <Projects />
+              <TechStack />
+              <More />
+            </>
+          )}
         </main>
       </div>
 
