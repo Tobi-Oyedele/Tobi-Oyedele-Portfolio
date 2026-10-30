@@ -1,7 +1,7 @@
 const pages = [
   { title: "Bookshelf", description: "What I’m reading and have read", href: "/bookshelf" },
   { title: "List 100", description: "Things I’d like to do", href: "/list-100" },
-  { title: "Guestbook", description: "Leave a little hello", href: "/explorations/guestbook.html" },
+  { title: "Guestbook", description: "Leave a little hello", href: "/guestbook" },
 ];
 
 export default function More() {

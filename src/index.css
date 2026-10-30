@@ -152,3 +152,8 @@
   .theme-toggle, .theme-icon { transition: none; }
   .theme-toggle:hover, .theme-toggle:active { transform: none; }
 }
+
+/* Neutral hover text across projects and navigation. */
+a:hover, button:hover, a:hover h3, a:hover [class*="text-"], button:hover [class*="text-"] {
+  color: var(--text-main);
+}
