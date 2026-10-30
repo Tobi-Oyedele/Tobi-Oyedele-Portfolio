@@ -1,13 +1,30 @@
 const goals = [
   "Learn something completely outside my usual interests.",
-  "Take a trip I’ve been putting off.",
   "Make something just for the fun of it.",
   "Read a book that changes my perspective.",
   "Learn to cook a favourite meal.",
   "Go to a live performance.",
   "Teach someone a useful skill.",
   "Spend a day exploring somewhere new.",
-].map((text, index) => ({ text, number: index + 1, done: index === 3 }));
+  "Visit New York City.",
+  "Visit Toronto.",
+  "Travel to all seven continents.",
+  "See the Northern Lights in person.",
+  "Attend a TED Talk.",
+  "Go on a solo vacation.",
+  "Go skydiving.",
+  "Ride in a hot air balloon.",
+  "Drive a race car.",
+  "Buy an SVJ.",
+  "Attend a Travis Scott concert.",
+  "Attend a Yeat concert.",
+  "Watch the FIFA World Cup live.",
+  "Watch a Manchester United game at Old Trafford.",
+  "Learn how to drift cars.",
+  "Go to a major fashion event, like Paris Fashion Week.",
+  "See a rocket launch live.",
+  "Go on a cruise.",
+].map((text, index) => ({ text, number: index + 1, done: text === "Read a book that changes my perspective." || text === "Visit Toronto." }));
 
 export default function List100() {
   return (
