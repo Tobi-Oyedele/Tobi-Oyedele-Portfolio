@@ -20,6 +20,18 @@ async function database() {
   return db;
 }
 
+// Only fixed diagnostic labels leave this function, never raw error messages.
+export function storageDiagnostic(error) {
+  const errors = [error, error?.cause, ...Array.from(error?.reason?.servers?.values?.() || []).map((server) => server.error)].filter(Boolean);
+  if (errors.some((e) => e.message === 'NOT_CONFIGURED')) return 'CONFIGURATION_MISSING';
+  if (errors.some((e) => e.code === 18 || e.code === 8000 || e.codeName === 'AuthenticationFailed')) return 'AUTHENTICATION_FAILED';
+  if (errors.some((e) => e.code === 13 || e.codeName === 'Unauthorized')) return 'DATABASE_PERMISSION_DENIED';
+  if (errors.some((e) => ['ENOTFOUND', 'ESERVFAIL', 'ENODATA', 'EAI_AGAIN'].includes(e.code))) return 'CLUSTER_DNS_FAILED';
+  if (errors.some((e) => e.name === 'MongoParseError' || e.name === 'MongoInvalidArgumentError')) return 'CONNECTION_CONFIGURATION_INVALID';
+  if (errors.some((e) => e.name === 'MongoServerSelectionError' || e.name === 'MongoNetworkTimeoutError' || ['ETIMEDOUT', 'ECONNREFUSED'].includes(e.code))) return 'CLUSTER_UNREACHABLE';
+  return 'DATABASE_OPERATION_FAILED';
+}
+
 export function validateEntry(input) {
   if (!input || typeof input !== 'object' || Array.isArray(input)) throw new Error('Enter your name and message.');
   const name = typeof input.name === 'string' ? input.name.trim() : '';
@@ -105,7 +117,7 @@ export function createGuestbookHandler(getDatabase = database) {
       return reply(201, { entry: publicEntry({ ...document, _id: result.insertedId }) });
     } catch (error) {
       // Do not log connection strings or return database errors to visitors.
-      console.error('Guestbook request failed:', error.message === 'NOT_CONFIGURED' ? 'configuration missing' : 'storage unavailable');
+      console.error('Guestbook request failed:', storageDiagnostic(error));
       return reply(503, { error: 'The guestbook is temporarily unavailable. Please try again later.' });
     }
   };
