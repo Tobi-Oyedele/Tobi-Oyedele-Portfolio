@@ -4,23 +4,25 @@ import TechStack from "./components/sections/TechStack";
 import More from "./components/sections/More";
 import Bookshelf from "./pages/Bookshelf";
 import List100 from "./pages/List100";
+import Guestbook from "./pages/Guestbook";
 import { ThemeProvider, useTheme } from "./context/ThemeContext";
 
 const MainContent = () => {
   const { isDarkMode, toggleTheme } = useTheme();
 
   const path = window.location.pathname.replace(/\/$/, "") || "/";
-  const isPersonalPage = path === "/bookshelf" || path === "/list-100";
+  const isPersonalPage = path === "/bookshelf" || path === "/list-100" || path === "/guestbook";
 
   return (
     <div className="max-w-2xl mx-auto min-h-screen px-6 sm:px-8 py-12 sm:py-16 md:py-20 flex flex-col justify-between">
       <div>
         {/* Navigation / Theme Toggle */}
         <nav className="flex items-center justify-between mb-14 sm:mb-16">
-          <div className="flex gap-5 text-xs text-muted">
+          <div className="flex flex-wrap gap-x-5 gap-y-2 text-xs text-muted">
             <a href="/">Home</a>
             <a href="/bookshelf" aria-current={path === "/bookshelf" ? "page" : undefined}>Bookshelf</a>
             <a href="/list-100" aria-current={path === "/list-100" ? "page" : undefined}>List 100</a>
+            <a href="/guestbook" aria-current={path === "/guestbook" ? "page" : undefined}>Guestbook</a>
           </div>
           <button
             onClick={toggleTheme}
@@ -45,7 +47,7 @@ const MainContent = () => {
         </nav>
 
         <main>
-          {isPersonalPage ? (path === "/bookshelf" ? <Bookshelf /> : <List100 />) : (
+          {isPersonalPage ? (path === "/bookshelf" ? <Bookshelf /> : path === "/list-100" ? <List100 /> : <Guestbook />) : (
             <>
               <Home />
               <Projects />
