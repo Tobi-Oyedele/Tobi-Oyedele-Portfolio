@@ -1,3 +1,4 @@
+import { ArrowUpRight } from "lucide-react";
 export default function About() {
   return (
     <article aria-labelledby="about-heading">
@@ -19,7 +20,7 @@ export default function About() {
       <section className="mt-10 pt-6 border-t border-hairline" aria-labelledby="reading-heading">
         <h2 id="reading-heading" className="font-serif text-[27px] leading-tight mb-4">On my bookshelf</h2>
         <p className="text-sm leading-7 text-muted">I’m currently reading <span className="text-off-white">The Happiness Trap</span> by Russ Harris and <span className="text-off-white">Atomic Habits</span> by James Clear.</p>
-        <a href="/bookshelf" className="inline-block mt-4 text-xs underline underline-offset-4">Explore my bookshelf ↗</a>
+        <a href="/bookshelf" className="inline-block mt-4 text-xs underline underline-offset-4">Explore my bookshelf <ArrowUpRight className="h-3.5 w-3.5 inline-block align-middle" strokeWidth={1.5} aria-hidden="true" /></a>
       </section>
       <section className="mt-10 pt-6 border-t border-hairline" aria-labelledby="hello-heading">
         <h2 id="hello-heading" className="font-serif text-[27px] leading-tight mb-4">Say hello</h2>

@@ -1,3 +1,4 @@
+import { ArrowUpRight } from "lucide-react";
 const pages = [
   { title: "Bookshelf", description: "What I’m reading and have read", href: "/bookshelf" },
   { title: "List 100", description: "Things I’d like to do", href: "/list-100" },
@@ -17,7 +18,7 @@ export default function More() {
               <span className="font-serif text-[23px] leading-snug">{page.title}</span>
               <span className="text-xs text-muted text-right whitespace-nowrap">
                 {page.description}{" "}
-                <span aria-hidden="true" className="inline-block transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 motion-reduce:transform-none motion-reduce:transition-none">↗</span>
+                <span aria-hidden="true" className="inline-block transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 motion-reduce:transform-none motion-reduce:transition-none"><ArrowUpRight className="h-3.5 w-3.5 inline-block align-middle" strokeWidth={1.5} aria-hidden="true" /></span>
               </span>
             </a>
           </li>

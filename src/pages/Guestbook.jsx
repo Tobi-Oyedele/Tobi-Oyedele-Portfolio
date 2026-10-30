@@ -1,3 +1,4 @@
+import { ArrowUpRight } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
 
 export default function Guestbook() {
@@ -65,7 +66,7 @@ export default function Guestbook() {
           <textarea id="guest-message" name="message" required maxLength={500} rows={4} value={message} onChange={(event) => setMessage(event.target.value)} className={`${field} resize-y`} />
           <div className="flex justify-between items-center gap-4 mt-3">
             <span className="text-xs text-muted">{message.length} / 500</span>
-            <button type="submit" className="border border-hairline px-4 py-2.5 text-xs disabled:opacity-50 disabled:cursor-wait">{submitting ? "Saving…" : "Leave a note ↗"}</button>
+            <button type="submit" className="border border-hairline px-4 py-2.5 text-xs disabled:opacity-50 disabled:cursor-wait">{submitting ? "Saving…" : <>Leave a note <ArrowUpRight className="h-3.5 w-3.5 inline-block align-middle" strokeWidth={1.5} aria-hidden="true" /></>}</button>
           </div>
           <p className="text-xs text-muted mt-4">Your name, message and website will be public.</p>
         </fieldset>
