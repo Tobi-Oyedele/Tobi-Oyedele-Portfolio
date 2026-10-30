@@ -5,13 +5,15 @@ import More from "./components/sections/More";
 import Bookshelf from "./pages/Bookshelf";
 import List100 from "./pages/List100";
 import Guestbook from "./pages/Guestbook";
+import About from "./pages/About";
 import { ThemeProvider, useTheme } from "./context/ThemeContext";
 
 const MainContent = () => {
   const { isDarkMode, toggleTheme } = useTheme();
 
   const path = window.location.pathname.replace(/\/$/, "") || "/";
-  const isPersonalPage = path === "/bookshelf" || path === "/list-100" || path === "/guestbook";
+  const pages = { "/about": About, "/bookshelf": Bookshelf, "/list-100": List100, "/guestbook": Guestbook };
+  const Page = pages[path];
 
   return (
     <div className="max-w-2xl mx-auto min-h-screen px-6 sm:px-8 py-12 sm:py-16 md:py-20 flex flex-col justify-between">
@@ -20,6 +22,7 @@ const MainContent = () => {
         <nav className="flex items-center justify-between mb-14 sm:mb-16">
           <div className="flex flex-wrap gap-x-5 gap-y-2 text-xs text-muted">
             <a href="/">Home</a>
+            <a href="/about" aria-current={path === "/about" ? "page" : undefined}>About</a>
             <a href="/bookshelf" aria-current={path === "/bookshelf" ? "page" : undefined}>Bookshelf</a>
             <a href="/list-100" aria-current={path === "/list-100" ? "page" : undefined}>List 100</a>
             <a href="/guestbook" aria-current={path === "/guestbook" ? "page" : undefined}>Guestbook</a>
@@ -47,7 +50,7 @@ const MainContent = () => {
         </nav>
 
         <main>
-          {isPersonalPage ? (path === "/bookshelf" ? <Bookshelf /> : path === "/list-100" ? <List100 /> : <Guestbook />) : (
+          {Page ? <Page /> : (
             <>
               <Home />
               <Projects />
