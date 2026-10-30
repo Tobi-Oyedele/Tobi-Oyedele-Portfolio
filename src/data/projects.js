@@ -5,7 +5,7 @@ export const projects = [
     image: "/images/Amsa.png",
     liveUrl: "https://www.amsafrica.org/",
     description:
-      "A multi-page community platform for medical schools across Africa.",
+      "Connecting medical schools across Africa.",
     tech: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
   },
   {
@@ -14,7 +14,7 @@ export const projects = [
     image: "/images/saint-valor.png",
     liveUrl: "https://www.saintvalor.com/",
     description:
-      "A refined luxury jewelry e-commerce experience powered by Next.js and Zustand.",
+      "An online store for luxury jewelry.",
     tech: [
       "Next.js",
       "React",
@@ -29,7 +29,7 @@ export const projects = [
     title: "Invoicely",
     image: "/images/invoicely.png",
     liveUrl: "https://www.invoicely.online/",
-    description: "A free, secure online invoice generator with PDF downloads.",
+    description: "Create invoices and download PDFs.",
     tech: [
       "React",
       "TypeScript",
@@ -48,7 +48,7 @@ export const projects = [
     title: "Shiptrail",
     liveUrl: "https://shiptrail.pxxlspace.cv/",
     description:
-      "A GitHub-powered shipping log that turns pushes and merged pull requests into updates you can review and track.",
+      "A shipping log powered by GitHub.",
     tech: [
       "Next.js",
       "React",
