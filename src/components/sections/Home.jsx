@@ -2,7 +2,39 @@ export const Home = () => {
   return (
     <header className="mb-16 sm:mb-20">
       <h1 className="font-serif text-[clamp(2.125rem,8vw,3.25rem)] font-normal leading-[1.08] tracking-[-0.02em] mb-4">
-        Oluwatobiloba
+        <button
+          type="button"
+          className="name-bounce"
+          aria-label="Oluwatobiloba — play letter animation"
+          onPointerEnter={(event) => {
+            const button = event.currentTarget;
+            button.classList.remove("is-playing");
+            void button.offsetWidth;
+            button.classList.add("is-playing");
+          }}
+          onClick={(event) => {
+            const button = event.currentTarget;
+            button.classList.remove("is-playing");
+            void button.offsetWidth;
+            button.classList.add("is-playing");
+          }}
+          onAnimationEnd={(event) => {
+            if (event.target === event.currentTarget.lastElementChild) {
+              event.currentTarget.classList.remove("is-playing");
+            }
+          }}
+        >
+          {Array.from("Oluwatobiloba").map((letter, index) => (
+            <span
+              key={index}
+              className="name-letter"
+              aria-hidden="true"
+              style={{ "--letter": index }}
+            >
+              {letter}
+            </span>
+          ))}
+        </button>
       </h1>
 
       <p className="text-[10px] uppercase tracking-[0.22em] text-muted mb-8 leading-relaxed font-medium">

@@ -1,7 +1,6 @@
 import { Home } from "./components/sections/Home";
 import Projects from "./components/sections/Projects";
 import { ThemeProvider, useTheme } from "./context/ThemeContext";
-import { Sun, Moon } from "lucide-react";
 
 const MainContent = () => {
   const { isDarkMode, toggleTheme } = useTheme();
@@ -13,14 +12,23 @@ const MainContent = () => {
         <nav className="flex items-center justify-end mb-14 sm:mb-16">
           <button
             onClick={toggleTheme}
-            className="p-1.5 rounded-lg border border-hairline hover:bg-hairline transition-all cursor-pointer flex items-center justify-center text-muted"
-            aria-label="Toggle theme"
+            className="theme-toggle"
+            aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
+            title={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
           >
-            {isDarkMode ? (
-              <Sun className="w-4 h-4 text-amber-400" />
-            ) : (
-              <Moon className="w-4 h-4 text-slate-700" />
-            )}
+            <svg
+              className={`theme-icon${isDarkMode ? " is-dark" : ""}`}
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <circle cx="12" cy="12" r="9" />
+              <path d="M12 3v18m0-12 4.65-4.65M12 14.3l7.37-7.37M12 19.6l8.85-8.85" />
+            </svg>
           </button>
         </nav>
 
