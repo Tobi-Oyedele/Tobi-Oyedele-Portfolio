@@ -2,6 +2,8 @@ import { Home } from "./components/sections/Home";
 import Projects from "./components/sections/Projects";
 import TechStack from "./components/sections/TechStack";
 import More from "./components/sections/More";
+import Bookshelf from "./pages/Bookshelf";
+import List100 from "./pages/List100";
 import { ThemeProvider, useTheme } from "./context/ThemeContext";
 
 const MainContent = () => {
