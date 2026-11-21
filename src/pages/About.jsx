@@ -24,7 +24,7 @@ export default function About() {
       </section>
       <section className="mt-10 pt-6 border-t border-hairline" aria-labelledby="hello-heading">
         <h2 id="hello-heading" className="font-serif text-[27px] leading-tight mb-4">Say hello</h2>
-        <p className="text-sm leading-7 text-muted">You can <a href="mailto:tobiloba.oyedele05@gmail.com" className="underline underline-offset-4">send me an email</a> or leave a note in my <a href="/guestbook" className="underline underline-offset-4">guestbook</a>.</p>
+        <p className="text-sm leading-7 text-muted">You can <a href="mailto:tobiloba.oyedele05@gmail.com" className="underline underline-offset-4">send me an email</a>.</p>
       </section>
     </article>
   );
