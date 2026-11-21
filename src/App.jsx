@@ -4,7 +4,6 @@ import TechStack from "./components/sections/TechStack";
 import More from "./components/sections/More";
 import Bookshelf from "./pages/Bookshelf";
 import List100 from "./pages/List100";
-import Guestbook from "./pages/Guestbook";
 import About from "./pages/About";
 import { ThemeProvider, useTheme } from "./context/ThemeContext";
 
@@ -12,7 +11,7 @@ const MainContent = () => {
   const { isDarkMode, toggleTheme } = useTheme();
 
   const path = window.location.pathname.replace(/\/$/, "") || "/";
-  const pages = { "/about": About, "/bookshelf": Bookshelf, "/list-100": List100, "/guestbook": Guestbook };
+  const pages = { "/about": About, "/bookshelf": Bookshelf, "/list-100": List100 };
   const Page = pages[path];
 
   return (
@@ -25,7 +24,6 @@ const MainContent = () => {
             <a href="/about" aria-current={path === "/about" ? "page" : undefined}>About</a>
             <a href="/bookshelf" aria-current={path === "/bookshelf" ? "page" : undefined}>Bookshelf</a>
             <a href="/list-100" aria-current={path === "/list-100" ? "page" : undefined}>List 100</a>
-            <a href="/guestbook" aria-current={path === "/guestbook" ? "page" : undefined}>Guestbook</a>
           </div>
           <button
             onClick={toggleTheme}
